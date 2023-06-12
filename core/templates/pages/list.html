@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container">
+  <div class="product_cards j-flex">
+    {% for product in products %}
+    <div class="product_card">
+      <div class="logo_name j-flex">
+        <h3>{{product.name}}</h3>
+        <img src="{{product.company_logo.url}}" alt="Logo" class="logo" />
+      </div>
+      <p class="price">${{product.price}}</p>
+      <p class="description">{{product.description|truncatechars_html:50}}</p>
+      <img src="{{product.image.url}}" alt="Image" class="product_image" />
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
